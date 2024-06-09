@@ -99,7 +99,7 @@
 <body>
   <div class="payment-form">
     <h2>Manual Payment</h2>
-    <form action="submit_payment.php" method="POST"> <!-- Specify the action and method -->
+    <form action="submit_payment.php" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -112,7 +112,6 @@
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" required>
       </div>
-
       <div class="form-group">
         <label for="description">Description:</label>
         <textarea id="description" name="description" rows="4" required></textarea>
@@ -130,7 +129,15 @@
         <input type="text" id="payeer-account" name="payeer-account" value="P1076739266" disabled>
         <button type="button" class="copy-button" onclick="copyPayeerWallet()">Copy</button>
       </div>
-      <button type="submit" id="submit-button" >Submit Payment</button>
+      <div class="form-group">
+        <label for="transaction-id">Transaction ID:</label>
+        <input type="text" id="transaction-id" name="transaction-id" required>
+      </div>
+      <div class="form-group">
+        <label for="payment-image">Upload Payment Proof:</label>
+        <input type="file" id="payment-image" name="payment-image" accept="image/*" required>
+      </div>
+      <button type="submit" id="submit-button">Submit Payment</button>
     </form>
   </div>
 
